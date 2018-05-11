@@ -1400,7 +1400,7 @@ int32_t http_session::srequest(void)
         }
         ns_hurl::kv_map_list_t::const_iterator i_hdr;
         bool l_specd_host = false;
-#define STRN_CASE_CMP(_a,_b) (strncasecmp(_a, _b, strlen(_a)) == 0)
+#define STRN_CASE_CMP(_a,_b) (strncasecmp(_a, _b, strlen(_b)) == 0)
 #define SET_IF_V1(_key) do { \
 i_hdr = m_request->m_headers.find(_key);\
 if(i_hdr != m_request->m_headers.end()) { \
@@ -1819,7 +1819,7 @@ int32_t h2_session::srequest(void)
             i_hdr != m_request->m_headers.end();
             ++i_hdr)
         {
-#define STRN_CASE_CMP(_a,_b) (strncasecmp(_a, _b, strlen(_a)) == 0)
+#define STRN_CASE_CMP(_a,_b) (strncasecmp(_a, _b, strlen(_b)) == 0)
                 if(STRN_CASE_CMP("accept", i_hdr->first.c_str()) ||
                    STRN_CASE_CMP("user-agent", i_hdr->first.c_str()))
                 {
